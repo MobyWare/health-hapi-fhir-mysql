@@ -1,0 +1,22 @@
+version: '2'
+services:
+  fhir-jpa-server:
+    image: bhits/hapi-fhir-jpaserver:2.3-01
+    restart: always
+    environment:
+        CATALINA_OPTS: -Djdbc.url=jdbc:mysql://fhirdb:3306/hapifhir -Djdbc.password=root12345
+    ports:
+      - "9090:8080"
+  fhirdb:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root12345
+      - MYSQL_DATABASE=hapifhir
+      - MYSQL_USER=fhiruser
+      - MYSQL_PASSWORD=fhir12345   
+    ports:
+      - "3306:3306"
+    volumes:
+      - fhir-mysql-data:/var/lib/mysql      
+volumes:
+  fhir-mysql-data:

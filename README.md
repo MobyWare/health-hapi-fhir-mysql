@@ -1,5 +1,5 @@
 # Goal
-Showing how to use MySQL with HAPI FHIR rather than the file based derby database. My goal is to more easily.
+Showing how to use MySQL with HAPI FHIR rather than the file based derby database. My goal is to more easily access manipulate the data with the tools in the MySQL ecosystem. For example I generated the EER diagram using __*MySQL Workbench*__.
 
 ## Setup 
 ### Method 1
